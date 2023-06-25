@@ -6,6 +6,10 @@ import 'dart:convert';
 void main() {
   runApp(
     MaterialApp(
+      debugShowCheckedModeBanner: false,
+      theme: ThemeData(
+        useMaterial3:true
+      ),
       home: HomePage(),
     ),
   );
@@ -38,25 +42,28 @@ class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Colors.black,
       appBar: AppBar(
         title: Text('API SEBASTIAN', style: TextStyle(color: Colors.white),),
-        backgroundColor: Color.fromARGB(255, 0, 4, 255),
+        backgroundColor: Color.fromARGB(255, 24, 24, 24),
+        centerTitle: true,
       ),
       body: ListView.builder(
         itemCount: usersData == null ? 0 : usersData.length,
         itemBuilder: (BuildContext context, int index) {
           return Card(
+            color: Color.fromARGB(255, 0, 0, 0),
             child: Padding(
               padding: const EdgeInsets.all(12.0),
               child: Row(
                 children: <Widget>[
-                  Icon(Icons.person),
+                  Icon(Icons.person, color: Colors.white,),
                   Padding(
                     padding: const EdgeInsets.all(10.0),
                     child: Text(
                       "${usersData[index]["name"]}",
                       style: TextStyle(
-                          fontSize: 20.0, fontWeight: FontWeight.w700),
+                          fontSize: 20.0, fontWeight: FontWeight.w700, color: Colors.white),
                     ),
                   ),
                 ],
